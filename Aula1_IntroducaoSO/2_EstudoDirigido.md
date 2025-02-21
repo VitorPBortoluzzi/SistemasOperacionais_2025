@@ -19,7 +19,7 @@ de DEITEL, Harvey M.; DEITEL, Paul J.; CHOFFNES, David R. Sistemas operacionais.
     Em vez disso, a maioria dos dispositivos envia ao processador um sinal denominado interrupção quando ocorre um evento. O sistema operacional pode responder a uma mudança no status do dispositivo notificando os processos que estão à espera desses eventos. Exceções são interrupções geradas em resposta a erros, como falhas de hardware, erros de lógica e violações de proteção (veja no site deste livro: "Curiosidades — Origens do Termo 'Glitch'"). Em vez de provocar a falha do sistema, o processador tipicamente invocará o sistema operacional para que este determine como ele deve reagir.
 
 ## 4. Defina I/O síncrona e I/O assíncrona. Qual permite melhor uso da CPU?
-    
+
 
 ## 5. Qual a finalidade da DMA – Direct Memory Access?
     O Acesso Direto à Memória (DMA) permite que dispositivos transfiram dados diretamente para a memória principal sem envolver o processador, liberando-o para outras tarefas. Um controlador de E/S gerencia essa transferência e gera uma interrupção ao final do processo, melhorando o desempenho em sistemas com muitas operações de E/S, como servidores.
@@ -30,4 +30,5 @@ de DEITEL, Harvey M.; DEITEL, Paul J.; CHOFFNES, David R. Sistemas operacionais.
 
 ## 7. Caracterize a estrutura de armazenamento de um sistema de computação.
 ## 8. Em que consiste o uso de cache?
+    Para melhorar o desempenho, a maioria dos sistemas executa caching colocando cópias das informações as quais os processos se referem em armazenameto mais rápido.
 ## 9. Caracterize os diferentes tipos de proteção de hardware suportados em um sistema de computação
