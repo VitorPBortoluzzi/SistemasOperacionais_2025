@@ -1,0 +1,49 @@
+﻿Quando um novo processo é criado, ele é carregado na memória RAM e colocado na fila de processos no estado Pronto. Em seguida, ele entra em execução quando selecionado pelo escalonador. Caso precise aguardar por uma operação de E/S ou evento, ele é pausado e movido para a fila de processos no estado Bloqueado. Após a conclusão do evento, ele retorna à fila de Prontos. Se um processo de maior prioridade chegar à fila de Prontos, o processo em execução pode ser interrompido e retornar à fila de Prontos, aguardando ser retomado. Esse ciclo continua até que o processo seja encerrado e movido para o estado Terminado.
+Estados das filas de processos:
+    • Fila de processos no estado Pronto: Contém processos prontos para executar, aguardando a alocação da CPU. O escalonador de curto prazo seleciona o próximo processo a ser executado.
+    • Fila de processos no estado Bloqueado: Contém processos que aguardam por eventos ou operações de E/S. Esses processos são gerenciados pelo sistema operacional e, quando o evento ocorre, são movidos de volta para a fila de Prontos.
+    • Fila de processos no estado Novo: Contém processos recém-criados que aguardam para serem carregados na memória RAM. O escalonador de longo prazo decide quando mover esses processos para a fila de Prontos.
+    • Fila de processos em execução → Pronto (Interrupção): Quando um processo em execução é interrompido (por exemplo, por um timer ou prioridade), ele é movido de volta para a fila de Prontos. O escalonador de médio prazo pode ser responsável por essa decisão em sistemas com swapping.
+Escalonadores:
+    • Escalonador de curto prazo: Responsável por selecionar o próximo processo da fila de Prontos para executar na CPU. Opera em alta frequência (milissegundos).
+    • Escalonador de longo prazo: Decide quais processos devem ser movidos da fila de Novos para a fila de Prontos, controlando o grau de multiprogramação. Opera em baixa frequência (minutos).
+    • Escalonador de médio prazo: Gerencia a troca de processos entre a memória RAM e o disco (swapping), movendo processos entre a memória principal e a secundária. Opera em frequência intermediária.
+
+
+
+
+
+
+6. É correto afirmar que devido a Multiprogramação há uma menor utilização do processador? Justifique.
+
+	Não. O objetivo da multiprogramação é aumentar o uso do processador, reduzindo seu tempo ocioso.
+
+7. A partir do conceito de processo, justifique o escalonamento de processos.
+	O escalonamento de processos é uma função essencial do sistema operacional, que tem como objetivo gerenciar a alocação do processador entre os processos de forma eficiente e justa. 
+
+9. Caracterize o que é um processo em Sistemas Operacionais. Inclua nesta caracterização, o bloco descritor de processo.
+
+Um processo é uma entidade dinâmica que representa a execução de um programa, incluindo seu código, dados, estado atual e recursos alocados. O Bloco Descritor de Processo (PCB) é a estrutura que armazena todas as informações necessárias para o gerenciamento do processo pelo sistema operacional, permitindo a execução concorrente de múltiplos processos e a troca de contexto entre eles.
+
+10. Quais são os estados que um processo pode assumir durante seu ciclo de vida? Descreva os eventos que fazem com que um processo mude de estado. Faça uma relação com as várias filas existentes no sistema.
+
+Um processo pode assumir os seguintes estados durante seu ciclo de vida:
+    1. Novo (New): O processo está sendo criado.
+    2. Pronto (Ready): O processo está pronto para ser executado, aguardando a alocação do processador.
+    3. Executando (Running): O processo está sendo executado pelo processador.
+    4. Bloqueado (Blocked/Waiting): O processo está aguardando por algum evento externo (como uma operação de E/S) para continuar.
+    5. Terminado (Terminated): O processo concluiu sua execução ou foi encerrado.
+Transições de estado e eventos:
+    • Novo → Pronto: O processo é criado e colocado na fila de prontos.
+    • Pronto → Executando: O escalonador seleciona o processo para execução.
+    • Executando → Pronto: O processo é interrompido (por exemplo, por um timer) e volta para a fila de prontos.
+    • Executando → Bloqueado: O processo solicita uma operação de E/S ou espera por um evento.
+    • Bloqueado → Pronto: A operação de E/S é concluída ou o evento esperado ocorre.
+    • Executando → Terminado: O processo conclui sua execução ou é encerrado.
+Relação com as filas do sistema:
+    • Fila de prontos (Ready Queue): Contém todos os processos no estado "Pronto", aguardando para serem executados.
+    • Fila de bloqueados (Blocked Queue): Contém processos no estado "Bloqueado", aguardando por eventos ou operações de E/S.
+    • Fila de novos (New Queue): Em alguns sistemas, processos recém-criados são mantidos aqui antes de serem movidos para a fila de prontos.
+    • Fila de terminados (Terminated Queue): Processos que foram finalizados são mantidos aqui até que o sistema operacional libere seus recursos.
+Essas filas são gerenciadas pelo sistema operacional para garantir que os processos sejam executados de forma eficiente e justa.
+
